@@ -1,0 +1,7 @@
+# Ignore directories
+faux\ code/
+pictures/
+sauv/
+
+# Ignore specific files
+test.html

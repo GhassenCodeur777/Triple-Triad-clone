@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple Triad</title>
+    <link rel="stylesheet" type="text/css" href="styles/duel.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Player Side (Left) -->
+        <div class="player-side">
+            <div class="player-name">You</div>
+            <div class="player-score">Score: 0</div>
+            <div class="cards-container">
+                <div id="pc1" class="card" ></div>
+                <div id="pc2" class="card" ></div>
+                <div id="pc3" class="card" ></div>
+                <div id="pc4" class="card" ></div>
+                <div id="pc5" class="card" ></div>
+            </div>
+        </div>
+
+        <!-- Game Board (Center) -->
+        <div class="game-board">
+            <div class="board-title">Triple Triad</div>
+            <div class="grid-container">
+                <div id=1 class="grid-cell empty"></div>
+                <div id=2 class="grid-cell empty"></div>
+                <div id=3 class="grid-cell empty"></div>
+                <div id=4 class="grid-cell empty"></div>
+                <div id=5 class="grid-cell empty"></div>
+                <div id=6 class="grid-cell empty"></div>
+                <div id=7 class="grid-cell empty"></div>
+                <div id=8 class="grid-cell empty"></div>
+                <div id=9 class="grid-cell empty"></div>
+            </div>
+        </div>
+
+        <!-- Opponent Side (Right) -->
+        <div class="opponent-side">
+            <div class="opponent-name">Opponent</div>
+            <div class="opponent-score">Score: 0</div>
+            <div class="opponent-cards">
+                <div id="oc1" class="opponent-card opponent"></div>
+                <div id="oc2" class="opponent-card opponent"></div>
+                <div id="oc3" class="opponent-card opponent"></div>
+                <div id="oc4" class="opponent-card opponent"></div>
+                <div id="oc5" class="opponent-card opponent"></div>
+            </div>
+        </div>
+    </div>
+     <script type="module" src="scripts/duel.js"></script>
+</body>
+</html>
