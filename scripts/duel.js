@@ -1,5 +1,4 @@
-import { ComboData_same_cell1 } from './testData.js';
-import { ComboData_plus_cell1 } from './testData.js';
+import { FakeSameCombo } from './testData.js';
 
 // Array of all available card images
 const allCards = [
@@ -223,9 +222,235 @@ const allCards = [
     values: [6,2,6,7]},     
     {image: "pictures/Elnoyle.png",
     values: [5,3,7,6]},     
+    {image: "pictures/Elvoret.png",
+    values: [7,8,3,4]},     
+    {image: "pictures/EmeraldWeapon.png",
+    values: [3,10,9,2]},     
+    {image: "pictures/Estinien.png",
+    values: [8,8,1,7]},     
+    {image: "pictures/Evrae.png",
+    values: [3,8,5,4]},     
+    {image: "pictures/Exdeath.png",
+    values: [5,9,7,4]},     
+    {image: "pictures/Fang.png",
+    values: [4,5,8,7]},     
+    {image: "pictures/Fangshell.png",
+    values: [3,4,2,1]},     
+    {image: "pictures/Fastitocalon.png",
+    values: [7,5,1,3]},     
+    {image: "pictures/Fastitocalon-F.png",
+    values: [3,5,2,1]},     
+    {image: "pictures/Fenrir.png",
+    values: [3,6,9,6]},     
+    {image: "pictures/Firion.png",
+    values: [9,4,5,6]},     
+    {image: "pictures/Flamehound.png",
+    values: [3,3,3,3]},     
+    {image: "pictures/Flan.png",
+    values: [5,3,1,2]},     
+    {image: "pictures/Flandragora.png",
+    values: [5,3,7,1]},     
+    {image: "pictures/FloatingEye.png",
+    values: [1,2,6,2]},     
+    {image: "pictures/Forbidden.png",
+    values: [6,6,2,3]},     
+    {image: "pictures/Fran.png",
+    values: [5,7,4,8]},     
+    {image: "pictures/Freya.png",
+    values: [3,8,6,7]},     
+    {image: "pictures/FujinRaijin.png",
+    values: [2,8,8,4]},     
+    {image: "pictures/Funguar.png",
+    values: [5,1,1,3]},
+    {image: "pictures/Gabranth.png",
+    values: [7,7,5,5]},
+    {image: "pictures/Gaius.png",
+    values: [2,4,10,8]},
+    {image: "pictures/Garchimacera.png",
+    values: [4,4,2,3]},
+    {image: "pictures/Gargantua.png",
+    values: [5,6,8,6]},
+    {image: "pictures/Gargoyle.png",
+    values: [6,2,3,2]},
+    {image: "pictures/Garland.png",
+    values: [3,7,8,4]},
+    {image: "pictures/Garnet.png",
+    values: [2,7,10,7]},
+    {image: "pictures/Garuda.png",
+    values: [3,4,1,3]},
+    {image: "pictures/Gau.png",
+    values: [5,5,5,8]},
+    {image: "pictures/Gayla.png",
+    values: [2,1,4,4]},
+    {image: "pictures/Geezard.png",
+    values: [1,4,1,5]},
+    {image: "pictures/Genesis.png",
+    values: [6,7,2,7]},
+    {image: "pictures/Geosgaeno.png",
+    values: [3,6,1,6]},
+    {image: "pictures/Gerogero.png",
+    values: [1,8,8,3]},
+    {image: "pictures/Gesper.png",
+    values: [1,5,4,1]},
+    {image: "pictures/GiantCrab.png",
+    values: [3,1,1,6]},
+    {image: "pictures/Gigantoad.png",
+    values: [3,5,3,2]},
+    {image: "pictures/Gilgamesh.png",
+    values: [3,8,9,6]},
+    {image: "pictures/GIM47N.png",
+    values: [5,5,7,4]},
+    {image: "pictures/GiNattak.png",
+    values: [7,4,5,1]},
+    {image: "pictures/Gizamaluke.png",
+    values: [4,4,5,5]},
+    {image: "pictures/GlacialEye.png",
+    values: [6,1,4,3]},
+    {image: "pictures/Goblin.png",
+    values: [1,4,2,2]},
+    {image: "pictures/Godo.png",
+    values: [4,6,1,6]},
+    {image: "pictures/Gogo.png",
+    values: [8,5,4,4]},
+    {image: "pictures/Golbez.png",
+    values: [4,5,8,7]},
+    {image: "pictures/GoldDragon.png",
+    values: [3,5,9,4]},
+    {image: "pictures/Granaldo.png",
+    values: [7,2,8,5]},
+    {image: "pictures/GrandDragon.png",
+    values: [5,2,6,6]},
+    {image: "pictures/GrandMantis.png",
+    values: [5,2,5,3]},
+    {image: "pictures/Grat.png",
+    values: [7,1,3,1]},
+    {image: "pictures/Grendel.png",
+    values: [4,4,5,2]},
+    {image: "pictures/Griever.png",
+    values: [10,2,3,10]},
+    {image: "pictures/Griffin.png",
+    values: [4,2,2,6]},
+    {image: "pictures/GuardScorpion.png",
+    values: [1,5,1,5]},
+    {image: "pictures/Hades.png",
+    values: [5,8,3,8]},
+    {image: "pictures/Hecteyes.png",
+    values: [1,3,7,2]},
+    {image: "pictures/HedgehogPie.png",
+    values: [4,3,4,1]},
+    {image: "pictures/HellHouse.png",
+    values: [3,2,4,1]},
+    {image: "pictures/Hexadragon.png",
+    values: [7,5,4,3]},
+    {image: "pictures/Highwind.png",
+    values: [6,3,10,5]},
+    {image: "pictures/Hope.png",
+    values: [8,5,7,4]},
+    {image: "pictures/Hydra.png",
+    values: [5,3,1,5]},
+    {image: "pictures/Ifrit.png",
+    values: [9,6,2,8]},
+    {image: "pictures/Iguion.png",
+    values: [8,2,8,2]},
+    {image: "pictures/Imp.png",
+    values: [3,5,3,6]},
+    {image: "pictures/IronGiant.png",
+    values: [6,5,6,5]},
+    {image: "pictures/Irvine.png",
+    values: [10,7,5,1]},
+    {image: "pictures/Ixion.png",
+    values: [8,5,10,2]},
+    {image: "pictures/Jack.png",
+    values: [8,3,6,3]},
+    {image: "pictures/Jecht.png",
+    values: [7,8,6,5]},
+    {image: "pictures/Jelleye.png",
+    values: [3,2,1,7]},
+    {image: "pictures/Jenova.png",
+    values: [8,1,10,5]},
+    {image: "pictures/Jessie.png",
+    values: [8,6,5,2]},
+    {image: "pictures/Jihl.png",
+    values: [2,7,7,3]},
+    {image: "pictures/Jill.png",
+    values: [7,4,9,4]},
+    {image: "pictures/Julia.png",
+    values: [9,1,5,5]},
+    {image: "pictures/JumboCactuar.png",
+    values: [8,8,4,4]},
+    {image: "pictures/Kain.png",
+    values: [7,7,5,7]},
+    {image: "pictures/KalmFang.png",
+    values: [1,3,3,3]},
+    {image: "pictures/Kan-E-Senna.png",
+    values: [2,5,7,1]},
+    {image: "pictures/Kaze.png",
+    values: [7,5,5,5]},
+    {image: "pictures/Kefka.png",
+    values: [7,10,8,2]},
+    {image: "pictures/Kelzmelzer.png",
+    values: [3,2,2,4]},
+    {image: "pictures/Killbin.png",
+    values: [1,5,3,2]},
+    {image: "pictures/Kimahri.png",
+    values: [5,6,5,5]},
+    {image: "pictures/Kraken.png",
+    values: [9,4,5,2]},
+    {image: "pictures/Krysta.png",
+    values: [7,5,8,1]},
+    {image: "pictures/Kuja.png",
+    values: [7,3,6,10]},
+    {image: "pictures/Kujata.png",
+    values: [5,7,6,7]},
+    {image: "pictures/Lahabrea.png",
+    values: [7,7,5,4]},
+    {image: "pictures/Lamia.png",
+    values: [4,4,2,6]},
+    {image: "pictures/LandWorm.png",
+    values: [3,3,3,6]},
+    {image: "pictures/Lani.png",
+    values: [5,1,5,7]},
+    {image: "pictures/Lann.png",
+    values: [6,5,3,1]},
+    {image: "pictures/Leblanc.png",
+    values: [5,1,1,9]},
+    {image: "pictures/Lebreau.png",
+    values: [4,6,5,2]},
+    {image: "pictures/Leo.png",
+    values: [8,4,8,2]},
+    {image: "pictures/Leviathan.png",
+    values: [7,10,2,7]},
+    {image: "pictures/Levikron.png",
+    values: [2,1,4,1]},
+    {image: "pictures/Lewena.png",
+    values: [3,5,3,4]},
+    {image: "pictures/Lich.png",
+    values: [5,4,9,2]},
+    {image: "pictures/Lightning.png",
+    values: [4,4,9,9]},
+    {image: "pictures/Locke.png",
+    values: [4,6,10,3]},
+    {image: "pictures/MadamM.png",
+    values: [4,10,4,2]},
+    {image: "pictures/Madeen.png",
+    values: [5,10,5,2]},
+    {image: "pictures/MagicPot.png",
+    values: [7,2,4,4]},
+    {image: "pictures/MagitekArmor.png",
+    values: [4,4,4,7]},
+    {image: "pictures/MagusSisters.png",
+    values: [5,5,5,5]},
+    {image: "pictures/Malboro.png",
+    values: [7,7,4,3]},
+    {image: "pictures/Manderville.png",
+    values: [6,6,5,1]},
+    {image: "pictures/Mateus.png",
+    values: [2,7,7,7]},
+    {image: "pictures/Medusa.png",
+    values: [3,6,1,4]},
+    {image: "pictures/Megistotherian.png",
+    values: [8,1,8,1]},        
 ];
-
-export {allCards};
 
 // for each card extract the "name" value from the "image" value
 allCards.forEach(card => {
@@ -233,9 +458,9 @@ allCards.forEach(card => {
   card.name = fileName.replace('.png', '');      // "Abadon"
 });
 
+// My 5 cards and my opponent's 5 cards 
 const myCards_divs = document.querySelectorAll(".card");
 const opponentCards_divs = document.querySelectorAll(".opponent-card");
-
 const cards_mine = [
     {id:"pc1",
     name: "Abadon",
@@ -258,7 +483,6 @@ const cards_mine = [
     image: "pictures/ChubbyChocobo.png",
     values: [4,4,8,9]}
 ]; 
-export {cards_mine};
 
 const cards_opponent = [
     {id: "oc1", name: "Lulu", image: "pictures/Lulu.png", values: [6,7,4,7]},
@@ -268,9 +492,9 @@ const cards_opponent = [
     {id: "oc5", name: "Tonberry", image: "pictures/Tonberry.png", values: [3, 6, 4, 4]}
 ];
 
-// populate my HTML card DIVs with images
+// populate my 5 HTML card DIVs with images
 if (myCards_divs.length>0) {
-    var i = 0;
+    let i = 0;
     cards_mine.forEach(card => {
         const img = document.createElement("img");    
         img.src = card.image;
@@ -279,10 +503,9 @@ if (myCards_divs.length>0) {
         i++;
     });
 }
-
-// populate opponent's HTML card DIVs with images
+// populate opponent's 5 HTML card DIVs with images
 if (opponentCards_divs.length>0) {
-    var i = 0;
+    let i = 0;
     cards_opponent.forEach(card_opp => {
         const img = document.createElement("img");    
         img.src = card_opp.image;
@@ -294,62 +517,139 @@ if (opponentCards_divs.length>0) {
     });
 }
 
-const cell = document.getElementById("oc1");
-cell.classList.add("red-card");
-
 // game and prize rules 
-var plusRule = true;
-var sameRule = true;
-var comboRule = true;
-var plusWallRule = true;
-var sameWallRule = true;
-var winPrize = "one"; //winner chooses one card
+let plusRule = true;
+let sameRule = true;
+let comboRule = true;
+let plusWallRule = true;
+let sameWallRule = true;
+let winPrize = "one"; //winner chooses one card
 // scores
-var my_score = 5; 
-var op_score = 5;
+let my_score = 5; 
+let op_score = 5;
 // turns 
-var turn = 1;
-var player = "me"; //I play first
-var selected_card_me = {};
-var selected_card_opponent = {};
+let turn = 1;
+let player = "me"; //I play first
+let selected_card_mine = {};
+let selected_card_opponent = {};
 // placed cards
-var placed_cards = [];
+let placed_cards = [];
+// SAME variables
+let is_same_up = false;                            
+let is_same_right = false;                            
+let is_same_below = false;
+let is_same_left = false;
+// PLUS variables
+let sum_up = 0;                            
+let sum_right = 0;                            
+let sum_down = 0;
+let sum_left = 0;
+// the logical structure of the grid : cells and their neighbors
+const nodes = [
+    {
+        origin: 1,
+        neighbors: [
+            { position: 2, to_origin: 3, from_origin: 1 },
+            { position: 4, to_origin: 0, from_origin: 2 }
+        ]
+    },
+    {
+        origin: 2,
+        neighbors: [
+            { position: 1, to_origin: 1, from_origin: 3 },
+            { position: 3, to_origin: 3, from_origin: 1 },
+            { position: 5, to_origin: 0, from_origin: 2 }
+        ]
+    },
+    {
+        origin: 3,
+        neighbors: [
+            { position: 2, to_origin: 1, from_origin: 3 },
+            { position: 6, to_origin: 0, from_origin: 2 }
+        ]
+    },
+    {
+        origin: 4,
+        neighbors: [
+            { position: 1, to_origin: 2, from_origin: 0 },
+            { position: 5, to_origin: 3, from_origin: 1 },
+            { position: 7, to_origin: 0, from_origin: 2 }
+        ]
+    },
+    {
+        origin: 5,
+        neighbors: [
+            { position: 2, to_origin: 2, from_origin: 0 },
+            { position: 4, to_origin: 1, from_origin: 3 },
+            { position: 6, to_origin: 3, from_origin: 1 },
+            { position: 8, to_origin: 0, from_origin: 2 }
+        ]
+    },
+    {
+        origin: 6,
+        neighbors: [
+            { position: 3, to_origin: 2, from_origin: 0 },
+            { position: 5, to_origin: 1, from_origin: 3 },
+            { position: 9, to_origin: 0, from_origin: 2 }
+        ]
+    },
+    {
+        origin: 7,
+        neighbors: [
+            { position: 4, to_origin: 2, from_origin: 0 },
+            { position: 8, to_origin: 3, from_origin: 1 }
+        ]
+    },
+    {
+        origin: 8,
+        neighbors: [
+            { position: 5, to_origin: 2, from_origin: 0 },
+            { position: 7, to_origin: 1, from_origin: 3 },
+            { position: 9, to_origin: 3, from_origin: 1 }
+        ]
+    },
+    {
+        origin: 9,
+        neighbors: [
+            { position: 6, to_origin: 2, from_origin: 0 },
+            { position: 8, to_origin: 1, from_origin: 3 }
+        ]
+    }
+];    
 
-// creates the event : clicking on one of my cards
+export {cards_mine};
+export {cards_opponent};
+export {allCards};
+export {nodes};
+
+// creates the event : clicking on one of my cards (in hand)
 document.querySelectorAll('.card').forEach(clicked_card_p => {
         clicked_card_p.addEventListener('click', () => {
             selecting_card_p(clicked_card_p);
         });
     });
 
-// creates the event : clicking on one of the opponent's cards
+// creates the event : clicking on one of the opponent's cards (in hand)
 document.querySelectorAll('.opponent-card').forEach(clicked_card_op => {
         clicked_card_op.addEventListener('click', () => {
             selecting_card_op(clicked_card_op);
         });
     });
-
-// const handlers = [
-//     handleCell1,
-//     handleCell2,
-//     handleCell3,    
-// ];
     
-// creates the event : clicking on one of grid's cells
-
+// creates the event : clicking on a grid's cell
 document.querySelectorAll('.grid-cell').forEach(clicked_cell => {
     clicked_cell.addEventListener('click', () => {
         const index = parseInt(clicked_cell.id);
         handleCell(clicked_cell);
     });
-});
-    
+});    
 
+// creates the event : clicking on one of my 5 cards (in hand)
 function selecting_card_p(clicked_card_p) {    
     if (player == "me") { 
         if (!placed_cards.some(obj => obj.id === clicked_card_p.id)) { //I can not select a previously played card
-            selected_card_me = cards_mine.find(carte => carte.id === clicked_card_p.id);
-            console.log("selected_card_me : " + selected_card_me.name);                
+            selected_card_mine = cards_mine.find(carte => carte.id === clicked_card_p.id);
+            // console.log("selected_card_mine : " + selected_card_mine.name);                
             console.log();
         }
         else {
@@ -361,6 +661,7 @@ function selecting_card_p(clicked_card_p) {
     }
 }
 
+// creates the event : clicking on one of the opponent's 5 cards (in hand)
 function selecting_card_op(clicked_card_op) {
     if (player == "opponent") 
         {
@@ -378,291 +679,111 @@ function selecting_card_op(clicked_card_op) {
     }
 }
 
+// creates the event : clicking on 1 of the 9 cells of the grid
 function handleCell(clicked_cell) {
-    var placed_card = {
-            id: selected_card_me.id,
+    let placed_card = {
+            id: selected_card_mine.id,
             color: "blue",
             position: parseInt(clicked_cell.id),
-            name: selected_card_me.name,
-            image: selected_card_me.image,
-            values: selected_card_me.values,            
-            cause_of_color_change : null, // null or same-plus or "superior"
-            color_change_turn : []
+            name: selected_card_mine.name,
+            image: selected_card_mine.image,
+            values: selected_card_mine.values,                   
+            // cause_of_color_change : null, // null or same-plus or "superior"
+            // color_change_turn : []
     };                    
     placed_cards.push(placed_card);
-    const cell1 = document.getElementById("1");   
+    const cell = document.getElementById(clicked_cell.id);   
     const img_placed_card = document.createElement("img");    
     img_placed_card.src = placed_card.image;
     img_placed_card.alt=placed_card.name;
-    cell1.appendChild(img_placed_card);
+    cell.appendChild(img_placed_card);
 
-    var sum_right = 0;                            
-    var sum_below = 0;
-    var is_same_right = false;                            
-    var is_same_below = false;
-    
-    // TESTING PURPOSE ONLY 1 (adding 2 fake cards : right and below)          
-    ComboData_same_cell1(placed_cards);
-    const index_2 = placed_cards.findIndex(card => card.position === 2);
-    if (index_2 && index_2 > 0) {
-        var card_cell2 = placed_cards[index_2];
-    }
-
-    const index_4 = placed_cards.findIndex(card => card.position === 4); 
-    if (index_4 && index_4 > 0) {
-        var card_cell4 = placed_cards[index_4];            
-    }
+    // TESTING PURPOSE ONLY 1 (adding fake cards)          
+    FakeSameCombo(placed_cards, clicked_cell);
     // END TESTING PURPOSE ONLY 2              
 
-    //if cell 2 contains a card : we check for SAME against cell2 and calculate the sum
-    if (placed_cards.find(obj => obj.position === 2) ) {                                
-        var compared_card_cell2 = placed_cards.find(obj => obj.position === parseInt(clicked_cell.id)+1);                  
-        if (placed_card.values[1] === compared_card_cell2.values[3]) { //checking for equal values 
-            is_same_right = true ;
-        }
-        sum_right = placed_card.values[1] + compared_card_cell2.values[3];          
-    }
-    //if cell 4 contains a card : we check for SAME below and calculate the sum  
-    if (placed_cards.find(obj => obj.position === parseInt(clicked_cell.id) + 3)) {                         
-        var compared_card_cell4 = placed_cards.find(obj => obj.position === parseInt(clicked_cell.id) + 3) ;
-        console.log("compared_card_cell4 : " + compared_card_cell4.name + " " + compared_card_cell4.values);
-        if (placed_card.values[2] === compared_card_cell4.values[0]) { //checking for equal values 
-            is_same_below = true ;
-        }
-        sum_below = placed_card.values[2] + compared_card_cell4.values[0];  
-        console.log("sum_below = " + sum_below); 
-    }           
-    console.table([
-        {
-            dir: "right",
-            my: placed_card.values[1],
-            opp: compared_card_cell2.values[3],
-            sum: sum_right,
-            same: is_same_right
-        },
-        {
-            dir: "below",
-            my: placed_card.values[2],
-            opp: compared_card_cell4.values[0],
-            sum: sum_below,
-            same: is_same_below
-        }
-        ]); 
+    const node_current = nodes.find(obj => obj.origin === parseInt(clicked_cell.id) ); 
+    // SAME logic
+    if (sameRule) {
+        // counting the SAME occurences
+        let counter_same = 0
+        for (const neighbor of node_current.neighbors) {
+            let compared_card = placed_cards.find(obj => obj.position === neighbor.position);  
+            if (compared_card) {
+                let is_same = placed_card.values[neighbor.from_origin] === compared_card.values[neighbor.to_origin];                
+                    if (is_same) {
+                        counter_same ++ ;
+                    }        
+            }      
+            else {
+                console.log("compared_card does not exist");
+            }                      
+        }            
 
-    //if SAME applies
-    if (sameRule && is_same_right && is_same_below) { 
-        card_cell2.color = "blue";
-        card_cell2.cause_of_color_change = "same-plus";
-        card_cell2.color_change_turn.push(turn);
-
-        card_cell4.color = "blue";
-        card_cell4.cause_of_color_change = "same-plus";
-        card_cell4.color_change_turn.push(turn);
-        setTimeout(() => {
-            const cell2 = document.getElementById("2");   
-            cell2.classList.remove('opponent');
-
-            const cell4 = document.getElementById("4");   
-            cell4.classList.remove('opponent');
-        }, 1000); // 1000ms = 1 second
-    }
-
-    //if SAME-WALL applies 
-    // *** 
-    // if (sameWallRule && is_same_right && is_same_below) { 
-    //     card_cell2.color = "blue";
-    //     card_cell2.cause_of_color_change = "same-plus";
-    //     card_cell2.color_change_turn.push(turn);
-
-    //     card_cell4.color = "blue";
-    //     card_cell4.cause_of_color_change = "same-plus";
-    //     card_cell4.color_change_turn.push(turn);
-    //     setTimeout(() => {
-    //         const cell2 = document.getElementById("2");   
-    //         cell2.classList.remove('opponent');
-
-    //         const cell4 = document.getElementById("4");   
-    //         cell4.classList.remove('opponent');
-    //     }, 1000); // 1000ms = 1 second
-    // }
-
-    //if PLUS applies
-    if (plusRule && sum_right === sum_below){                                           
-        card_cell2.color = "blue";
-        card_cell2.cause_of_color_change = "same-plus";
-        card_cell2.color_change_turn.push(turn);
-
-        card_cell4.color = "blue";         
-        card_cell4.cause_of_color_change = "same-plus";
-        card_cell4.color_change_turn.push(turn);
-
-        setTimeout(() => {
-            const cell2 = document.getElementById("2");   
-            cell2.classList.remove('opponent');
-
-            const cell4 = document.getElementById("4");   
-            cell4.classList.remove('opponent');
-        }, 1000); // 1000ms = 1 second
-    }
-    // combo logic  
-    if (comboRule) {             
-        const nodes = [
-            {
-                origin: 1,
-                neighbors: [
-                    { position: 2, to_origin: 3, from_origin: 1 },
-                    { position: 4, to_origin: 0, from_origin: 2 }
-                ]
-            },
-            {
-                origin: 2,
-                neighbors: [
-                    { position: 1, to_origin: 1, from_origin: 3 },
-                    { position: 3, to_origin: 3, from_origin: 1 },
-                    { position: 5, to_origin: 0, from_origin: 2 }
-                ]
-            },
-            {
-                origin: 3,
-                neighbors: [
-                    { position: 2, to_origin: 1, from_origin: 3 },
-                    { position: 6, to_origin: 0, from_origin: 2 }
-                ]
-            },
-            {
-                origin: 4,
-                neighbors: [
-                    { position: 1, to_origin: 2, from_origin: 0 },
-                    { position: 5, to_origin: 3, from_origin: 1 },
-                    { position: 7, to_origin: 0, from_origin: 2 }
-                ]
-            },
-            {
-                origin: 5,
-                neighbors: [
-                    { position: 2, to_origin: 2, from_origin: 0 },
-                    { position: 4, to_origin: 1, from_origin: 3 },
-                    { position: 6, to_origin: 3, from_origin: 1 },
-                    { position: 8, to_origin: 0, from_origin: 2 }
-                ]
-            },
-            {
-                origin: 6,
-                neighbors: [
-                    { position: 3, to_origin: 2, from_origin: 0 },
-                    { position: 5, to_origin: 1, from_origin: 3 },
-                    { position: 9, to_origin: 0, from_origin: 2 }
-                ]
-            },
-            {
-                origin: 7,
-                neighbors: [
-                    { position: 4, to_origin: 2, from_origin: 0 },
-                    { position: 8, to_origin: 3, from_origin: 1 }
-                ]
-            },
-            {
-                origin: 8,
-                neighbors: [
-                    { position: 5, to_origin: 2, from_origin: 0 },
-                    { position: 7, to_origin: 1, from_origin: 3 },
-                    { position: 9, to_origin: 3, from_origin: 1 }
-                ]
-            },
-            {
-                origin: 9,
-                neighbors: [
-                    { position: 6, to_origin: 2, from_origin: 0 },
-                    { position: 8, to_origin: 1, from_origin: 3 }
-                ]
-            }
-        ];    
-
-        // scan the grid for cards to flip via combo
-        for (var node of nodes) {
-            // if (node.origin >= 2) {
-                var scanned_origin = placed_cards.find(card => card.position === node.origin);
-                console.log("scanned_origin : " + scanned_origin.name + "  " + scanned_origin.position);                                  
-                for (var neighbor of node.neighbors) {                    
-                    var scanned_neighbor = placed_cards.find(card => card.position === neighbor.position);
-                    console.log("scanned_neighbor : " + scanned_neighbor.name + "  " + scanned_neighbor.position);                                  
-                    if (scanned_neighbor && scanned_neighbor.color === "red" && scanned_origin && scanned_origin.values[neighbor.from_origin] > scanned_neighbor.values[neighbor.to_origin]) {
-                        scanned_neighbor.color = "blue";
-                        scanned_neighbor.cause_of_color_change = "superior";
-                        scanned_neighbor.color_change_turn.push(turn);
-                            
-                        const neighbor_cell = document.getElementById(scanned_neighbor.position);   
-                        console.log("neighbor_cell.id : " + neighbor_cell.id);
+        // triggering and accomplishing SAME    
+        if (counter_same >= 2) {
+            for (const neighbor of node_current.neighbors) {
+                let compared_card = placed_cards.find(obj => obj.position === neighbor.position);  
+                if (compared_card) {
+                    let is_same = (placed_card.values[neighbor.from_origin] === compared_card.values[neighbor.to_origin]);
+                    // console.log("is_same = " + is_same);
+                    if (compared_card.color === "red" && is_same) {
+                        compared_card.color = "blue";
+                        compared_card.is_just_flipped = true;
+                        
                         setTimeout(() => {
-                            
-                            neighbor_cell.classList.remove('opponent');
-                        }, 2000)             
+                            const cell = document.getElementById(compared_card.position);   
+                            cell.classList.remove('opponent');
+                        }, 1000);                    
                     }
+                }    
+            }    
+        }               
+    }
+
+    else {
+        console.log("The rule \"SAME\" is not active");
+    }
+
+    // combo logic (Other conditions must be probably added)
+    if (comboRule) {        
+        // scan the grid for cards to flip via combo
+        for (let node of nodes) {
+            // if (node.origin >= 2) {
+                let scanned_origin_card = placed_cards.find(card => card.position === node.origin);
+                if (scanned_origin_card) {
+                    // console.log("scanned_origin_card : " + scanned_origin_card.name + "  " + scanned_origin_card.position);                                  
+                    for (let neighbor of node.neighbors) {                    
+                        let scanned_neighbor = placed_cards.find(card => card.position === neighbor.position);
+                        if (scanned_neighbor) {
+                            // console.log("scanned_neighbor : " + scanned_neighbor.name + "  " + scanned_neighbor.position);                                  
+                            if (scanned_neighbor && scanned_neighbor.color === "red" && scanned_origin_card && scanned_origin_card.values[neighbor.from_origin] > scanned_neighbor.values[neighbor.to_origin]) {
+                                scanned_neighbor.color = "blue";
+                                scanned_neighbor.cause_of_color_change = "superior";
+                                // scanned_neighbor.color_change_turn.push(turn);
+                                    
+                                const neighbor_cell = document.getElementById(scanned_neighbor.position);   
+                                // console.log("neighbor_cell.id : " + neighbor_cell.id);
+                                setTimeout(() => {
+                                    
+                                    neighbor_cell.classList.remove('opponent');
+                                }, 2000)             
+                            }
+                        }    
+                    }
+                }    
+                else {
+                    console.log("scanned_origin_card does not exist");                                  
                 }
             // }            
         }
-    }
-
-    //if "SUPERIOR" applies (in case SAME or PLUS fail)
-    if (sum_right !== null && sum_below !== null && is_same_right !== null && is_same_below !== null  && sum_right !== sum_below && is_same_right === false && is_same_below === false) {  
-        if (placed_card.values[1] > compared_card_cell2.values[3]) { // checking if placed card > card on the right
-            placed_cards[index_2].color = "blue";
-            placed_cards[index_2].cause_of_color_change = "superior";            
-        }
-        if (placed_card.values[2] > compared_card_cell4.values[0]) { // checking if placed card > card below
-            placed_cards[index_4].color = "blue";
-            placed_cards[index_4].cause_of_color_change = "superior";            
-        }
-    }
-    // else if (sum_right !== null && sum_below !== null && is_same_right !== null && is_same_below!== null && (sum_right === sum_below || is_same_right && is_same_below) ) { 
-    //     console.log("certaines variables ne sont pas définies!!!");
-    // }
-
+    }    
     turn ++ ;
 }
 
-// function handleCell2(clicked_cell2) {
-// }
-// function handleCell3(clicked_cell3) {
-// }
 
-//placing a card on the grid
-function placing_card(clicked_cell) {
-    // if (!occupied_cells.includes(parseInt(clicked_cell.id))) { //if the selected cell is available
-    if (!placed_cards.some(obj => obj.id === parseInt(clicked_cell.id))) { //if the selected cell is available
+    
 
-        switch (player) { //outer switch (my turn or opponent's turn)
-            case "me": //My turn
-                if (selected_card_me != null && Object.keys(selected_card_me).length > 0) { //if the selected card is valid and unplayed
-                    switch (parseInt(clicked_cell.id)) { //inner switch (9 cells, different logic/calculations)
-                        case 1 : 
-                            handleCell();                                                                              
-                            break;    
-                        case 2 :
-                            handleCell();                       
-                            break;    
-                        case 3 :
-                            handleCell();
-                            break;
-                        case 4 :
-                        case 5 :
-                        case 6 :
-                        case 7 :
-                        case 8 :
-                        case 9 :
-                    }
-       
-                }
-                break;
-
-            case "opponent":
-                
-                break;
-        }
-    } else {
-        console.log("Case déjà occupée !");
-    }
-}
 
 
       
