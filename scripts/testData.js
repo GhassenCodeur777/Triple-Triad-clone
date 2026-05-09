@@ -7,7 +7,7 @@ export function FakeSameCombo(placed_cards, clicked_cell) {
     const node_current = nodes.find(obj => obj.origin === parseInt(clicked_cell.id));    
     let placed_card = placed_cards.find(obj => obj.position === parseInt(clicked_cell.id));   
     placed_card.isFake = false;
-    console.log("placed_card.name = " + placed_card.name + "   " + placed_card.position);
+    // console.log("placed_card.name = " + placed_card.name + "   " + placed_card.position);
 
     const node_placed_card = nodes.find(node => node.origin === parseInt(clicked_cell.id)); 
     const number_of_neighbors = node_placed_card.neighbors.length; 
@@ -41,7 +41,10 @@ export function FakeSameCombo(placed_cards, clicked_cell) {
     // external for loop
     for (const node of nodes) {
 
-        // if all neighbors are occupied and not fake we break for all loops
+        // if all neighbors are occupied && 
+        // not fake && 
+        // their number === the number of neighbors of the placed card : we break from all loops
+        // && the current node is different from the node of the placed card
         const map = new Map(placed_cards.map(c => [c.position, c]));        
         if (
             node.neighbors.every(neighbor => {
@@ -54,7 +57,7 @@ export function FakeSameCombo(placed_cards, clicked_cell) {
             break;
         }
 
-        // if node.origin is not occupied : if it's the first (which will also be the last) time then we place a weak card in node.origin
+        // if node.origin is not occupied : if it's the first match then we place a weak card in node.origin
         if (!placed_cards.find(obj => obj.position === node.origin)) {                        
             if (is_first_find) {
                 weak_card = { ... allCards.find(cardOfAll =>
@@ -65,7 +68,7 @@ export function FakeSameCombo(placed_cards, clicked_cell) {
                 weak_card.position = node.origin;
                 weak_card.color = "red"; 
                 weak_card.isFake = true; 
-                console.log("weak_card.name = " + weak_card.name + " weak_card.position = " + weak_card.position);
+                // console.log("weak_card.name = " + weak_card.name + " weak_card.position = " + weak_card.position);
                 placed_cards.push(weak_card);
 
                 const cell_div = document.getElementById(node.origin);   
@@ -78,32 +81,21 @@ export function FakeSameCombo(placed_cards, clicked_cell) {
                 is_first_find = false;
             }            
         }
-
-        // *** if the neighbors are occupied and at least one of them is not fake then we create a card that is weaker than the non-fake neighbors
-        // obsolete if part of the code below it will be adopted
-        // for (const neighbor of node.neighbors) {  
-        //     let non_fakes_to_origin = [];
-        //     const neighbor_non_fake_Card = placed_cards.find(card => card.position === neighbor.position && card.isFake === false)
-        //     console.log("neighbor_non_fake_Card : " + neighbor_non_fake_Card.name + "   " + neighbor_non_fake_Card.position);
-        //     const to_origin = node.neighbors.find(neighbor => neighbor.position === neighbor_non_fake_Card.position).to_origin;
-        //     if (to_origin) {
-        //         non_fakes_to_origin.push(to_origin); 
-        //     }
-        // }
     
         // internal for loop               
         for (const neighbor of node.neighbors) {            
 
-            // if the neighbor is not occupied
+            // if the neighbor position is not occupied : we locate the card "node_card" placed in node.origin
             if (!placed_cards.find(obj => obj.position === neighbor.position)) {
                 const node_card = placed_cards.find(card => card.position === node.origin) 
+                // if node_card is NOT fake : we create weaker neighbors 
+                // we change any remaining red cards to weaker cards (code not implemented yet)
                 if (node_card.isFake === false) {
                     let card = { ... allCards.find(neighborCard => neighborCard.values[neighbor.to_origin] < node_card.values[neighbor.from_origin]) };
-                    // let card = { ... allCards.find(obj => obj.values[neighbor.to_origin] > weak_card.values[neighbor.from_origin]) };
                     card.position = neighbor.position;
                     card.color = "red"; 
                     card.isFake = true; 
-                    console.log("card.name = " + card.name + " card.position = " + card.position);
+                    // console.log("card.name = " + card.name + " card.position = " + card.position);
                     placed_cards.push(card);
                     
                     const cell_div = document.getElementById(neighbor.position);   
@@ -113,13 +105,13 @@ export function FakeSameCombo(placed_cards, clicked_cell) {
                     img_cell_div.alt= card.name;
                     cell_div.appendChild(img_cell_div);
                 }
+                // if the node_card IS fake
                 else if (node_card.isFake === true) {
-                    let card = { ... allCards.find(neighborCard => neighborCard.values[neighbor.to_origin] > node_card.values[neighbor.from_origin]) };
-                    // let card = { ... allCards.find(obj => obj.values[neighbor.to_origin] > weak_card.values[neighbor.from_origin]) };
+                    let card = { ... allCards.find(neighborCard => neighborCard.values[neighbor.to_origin] > node_card.values[neighbor.from_origin]) };                    
                     card.position = neighbor.position;
                     card.color = "red"; 
                     card.isFake = true; 
-                    console.log("card.name = " + card.name + " card.position = " + card.position);
+                    // console.log("card.name = " + card.name + " card.position = " + card.position);
                     placed_cards.push(card);
                     
                     const cell_div = document.getElementById(neighbor.position);   

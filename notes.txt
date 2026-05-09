@@ -1,0 +1,13 @@
+#---------------------- TRIPLE TRIAD : Project notes ----------------------#
+
+- sometimes (I don't exactly know how to replicate it) something breakes if I keep clicking on the same cell.
+
+- "placed_cards" can get filled with "undefinded" (I don't exactly know how to replicate it)
+
+- opponent can play first after clicking cells (I don't exactly know how to replicate it)
+
+- turn still flips even if no card played
+
+- SAME and combo logic almost completely not revised (because I have more urgent issues)
+
+- ennemy cards change color to blue when weaker even in opponent's turn 
