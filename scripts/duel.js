@@ -1,6 +1,6 @@
 import { FakeSameCombo } from './testData.js';
 
-let environment = "test";
+let environment = "dev";
 
 // Array of all available card images
 const allCards = [
@@ -500,7 +500,7 @@ if (myCards_divs.length>0) {
     cards_mine.forEach(card => {
         const img = document.createElement("img");    
         img.src = card.image;
-        img.alt=card.name;
+        img.alt = card.name;
         myCards_divs[i].appendChild(img);
         i++;
     });
@@ -511,7 +511,7 @@ if (opponentCards_divs.length>0) {
     cards_opponent.forEach(card_opp => {
         const img = document.createElement("img");    
         img.src = card_opp.image;
-        img.alt=card_opp.name;
+        img.alt = card_opp.name;
         // opponentCards_divs[i].classList.add("red-card");
         // opponentCards_divs[i].classList.add("opponent");
         opponentCards_divs[i].appendChild(img);
@@ -539,12 +539,15 @@ let player = { // I begin (untill randomized first turn gets coded)
 };
 
 let selected_card_mine = null;
-window.selected_card_mine = selected_card_mine;
+window.getSelected_card_mine = () => selected_card_mine;
+
 
 let selected_card_opponent = null;
 // placed cards
 let placed_cards = [];
 let placed_card = {};
+
+window.getPlacedCard = () => placed_card;
 
 // SAME variables
 let is_same_up = false;                            
@@ -557,8 +560,49 @@ let sum_right = 0;
 let sum_down = 0;
 let sum_left = 0;
 
-window.player = player;
-window.placed_cards = placed_cards;
+window.getPlayer = () => player;
+
+window.getPlacedCards = () => placed_cards;
+
+function debugState(label = "") {
+    console.clear();
+
+    console.log(
+        `%c${label}`,
+        "background: black; color: yellow; font-size: 16px; padding: 4px;"
+    );
+
+    console.log(
+        "%cPLAYER",
+        "color: cyan; font-weight: bold;",
+        player
+    );
+
+    console.log(
+        "%cSELECTED MINE",
+        "color: lightgreen; font-weight: bold;",
+        selected_card_mine
+    );
+
+    console.log(
+        "%cSELECTED OPPONENT",
+        "color: pink; font-weight: bold;",
+        selected_card_opponent
+    );
+
+    console.log(
+        "%cPLACED CARD",
+        "color: orange; font-weight: bold;",
+        placed_card
+    );
+
+    console.log(
+        "%cPLACED CARDS",
+        "color: violet; font-weight: bold;",
+        placed_cards
+    );
+}
+
 
 // SECTION: nodes 
 // the logical structure of the grid : cells and their neighbors
@@ -664,12 +708,14 @@ document.querySelectorAll('.grid-cell').forEach(clicked_cell => {
 // creates the event : clicking on one of my 5 cards (in hand)
 function selecting_card_p(clicked_card_p) {    
     if (player.identity === "me") { 
+        selected_card_opponent = {};
+        placed_card = {};
         //I can not select a previously played card
         if (!placed_cards.some(obj => obj.id === clicked_card_p.id) && clicked_card_p !== null && clicked_card_p !== undefined) { 
             selected_card_mine = cards_mine.find(carte => carte.id === clicked_card_p.id);            
             
             if (selected_card_mine) {
-                console.log("selected_card_mine : " + " id = " + selected_card_mine.id + " name : " + selected_card_mine.name);                
+                debugState("Me selecting my card");    
                 console.log();
             }            
         }
@@ -685,10 +731,12 @@ function selecting_card_p(clicked_card_p) {
 // creates the event : clicking on one of the opponent's 5 cards (in hand)
 function selecting_card_op(clicked_card_op) {
     if (player.identity === "opponent") {
+        selected_card_mine = {};
+        placed_card = {};
         //The opponent can not select a previously played card
         if (!placed_cards.some(obj => obj.id === clicked_card_op.id && clicked_card_op !== null && clicked_card_op !== undefined)) { //Opponent can not select a previously played card
             selected_card_opponent = cards_opponent.find(carte_op => carte_op.id === clicked_card_op.id);
-            // console.log("selected_card_opponent : " +"\r" + selected_card_opponent.name);
+            debugState("Opponent selecting his card");
             console.log();
         }
         else {
@@ -704,23 +752,19 @@ function selecting_card_op(clicked_card_op) {
 // creates the event : clicking on 1 of the 9 cells of the grid
 function handleCell(clicked_cell) {
 
+    // Aborting handleCell
     if (player.identity === "me" && (selected_card_mine === null || Object.keys(selected_card_mine).length === 0 || selected_card_mine.id === null) ) {        
         console.log("handleCell aborted!");
         return;
     }
-
     if (player.identity === "opponent" && (selected_card_opponent === null || Object.keys(selected_card_opponent).length === 0 || selected_card_opponent.id === null)) {        
         console.log("handleCell aborted!");
         return;
     }
-
-    console.log ("player.identity : " + player.identity);
-
-    // const placed_cards_length = placed_cards.length;
-    // ANCHOR:  if the player is "me" then the selected card will be placed on clicked cell
+    
+    // ANCHOR:  My card will be placed on clicked cell
     if (player.identity === "me" && selected_card_mine && Object.keys(selected_card_mine).length > 0 && !placed_cards.find(card=>card.id === selected_card_mine.id) ) {
 
-        // console.log ("selected_card_mine : " + selected_card_mine.name);
         placed_card.id = selected_card_mine.id;
         placed_card.color = player.color;
         placed_card.position = parseInt(clicked_cell.id);
@@ -732,15 +776,11 @@ function handleCell(clicked_cell) {
         if (indexToRemove !== -1) {                
             cards_mine.splice(indexToRemove, 1);
         }                
-        console.log(cards_mine);    
-        
-        // selected_card_mine = null;
-
+                
         if (!placed_cards.find(card=>card.id === placed_card.id)) {
             placed_cards.push({ ...placed_card });  
             
-            console.log("----- placed_cards : ");
-            console.log(placed_cards);    
+            debugState("Me placing a card");
 
             const cell_div = document.getElementById(clicked_cell.id);   
             const img_placed_card = document.createElement("img");    
@@ -751,11 +791,9 @@ function handleCell(clicked_cell) {
             placed_card = {};
         }
     }
-    // ANCHOR: if the player is "opponent" then the selected card will be placed on clicked cell
-    else if (player.identity === "opponent" && selected_card_opponent && Object.keys(selected_card_opponent).length > 0 && !placed_cards.find(card=>card.id === selected_card_opponent.id) && selected_card_opponent !== undefined) {
+    // ANCHOR: Opponent's card will be placed on clicked cell
+    else if (player.identity === "opponent" && selected_card_opponent && Object.keys(selected_card_opponent).length > 0 && !placed_cards.find(card=>card.id === selected_card_opponent.id) ) {
        
-        // if (placed_cards[placed_cards.length - 1].color === "blue") {
-        // while (placed_cards.length === placed_cards_length) {
         placed_card.id = selected_card_opponent.id;
         placed_card.color = player.color;
         placed_card.position = parseInt(clicked_cell.id);
@@ -767,17 +805,12 @@ function handleCell(clicked_cell) {
         if (indexToRemove !== -1) {                
             cards_opponent.splice(indexToRemove, 1);
         }                
-        
-        console.log(cards_opponent);
-
-        selected_card_opponent = null;
 
         if (!placed_cards.find(card=>card.id === placed_card.id)) {
             
             placed_cards.push( { ...placed_card });    
 
-            console.log("----- placed_cards : ");    
-            console.log(placed_cards);    
+            debugState("Opponent placing a card");
 
             const cell_div = document.getElementById(clicked_cell.id);   
             const img_placed_card = document.createElement("img");    
@@ -788,25 +821,15 @@ function handleCell(clicked_cell) {
             
             placed_card = {};
         }                
-        // } 
     }
     // ANCHOR: if neither
     else {
-        console.log ("both \"me\" and \"opponent\" blocks did not get executed!");
-
-        if (selected_card_opponent ) {
-            console.log ();
-            console.log ("000 player.identity === opponent\?  " + (player.identity === "opponent"));
-            console.log ("000 selected_card_opponent\?  " + (selected_card_opponent !== null));
-            console.log ("000 !placed_cards.find(card=>card.id === selected_card_opponent.id)?  " + (!placed_cards.find(card=>card.id === selected_card_opponent.id)) );
-            console.log ("000 selected_card_opponent !== undefined?  " + (selected_card_opponent !== undefined));
-            console.log ("000 selected_card_opponent !== \"\"?  " + (selected_card_opponent !== ""));
-            console.log();    
-        }        
+        console.log ("both \"me\" and \"opponent\" blocks did not get executed!");      
+        debugState("weird place for debugState()!!!");
     }
 
     // TESTING PURPOSE ONLY 1 (adding fake cards)   
-    // must be adjusted to "player.identity"
+    // must be adjusted depending on "player.identity"
     if (environment === "test") {
         FakeSameCombo(placed_cards, clicked_cell);        
     }      
@@ -815,8 +838,11 @@ function handleCell(clicked_cell) {
     const node_current = nodes.find(obj => obj.origin === parseInt(clicked_cell.id) ); 
     window.node_current = node_current;
     // ANCHOR: SAME logic
-    if (sameRule) {
-        if (player.identity === "me") {            
+    if (sameRule) {        
+        if (player.identity === "me") {     
+            
+            debugState("ME before SAME logic");
+            
             placed_card.id = selected_card_mine.id;
             placed_card.color = player.color;
             placed_card.position = parseInt(clicked_cell.id);
@@ -826,6 +852,9 @@ function handleCell(clicked_cell) {
         }
         
         else if (player.identity === "opponent") {
+            
+            debugState("Opponent before SAME logic");
+            
             placed_card.id = selected_card_opponent.id;
             placed_card.color = player.color;
             placed_card.position = parseInt(clicked_cell.id);
@@ -835,6 +864,7 @@ function handleCell(clicked_cell) {
         }
         else {
             console.log("this is not supposed to happen!") 
+            debugState("weird place for debugState()!!!2");
         }
 
         // counting the SAME occurences
@@ -844,33 +874,40 @@ function handleCell(clicked_cell) {
         for (const neighbor of node_current.neighbors) {
             let compared_card = placed_cards.find(obj => obj.position === neighbor.position);
             
-            console.log();
-            console.log();
-            console.log();
+            // console.log();
+            // console.log();
+            // console.log();
 
-            console.log(compared_card);
-            console.log(placed_card);
-            console.log(Object.keys(placed_card).length > 0);
-            console.log(placed_card.id !== null);
+            // console.log(compared_card);
+            // console.log(placed_card);
+            // console.log(Object.keys(placed_card).length > 0);
+            // console.log(placed_card.id !== null);
 
-            console.log();
-            console.log();
-            console.log();
+            // console.log();
+            // console.log();
+            // console.log();
             
             if (compared_card && placed_card && Object.keys(placed_card).length > 0 && placed_card.id !== null) {
                 let is_same = placed_card.values[neighbor.from_origin] === compared_card.values[neighbor.to_origin];                
                     if (is_same) {
+                        let start_debug = true;
+                        if (start_debug) {
+                            debugState("counting SAME occurences");
+                            start_debug = false;    
+                        }
                         counter_same ++ ;
                     }        
             }      
             else {
                 console.log("compared_card OR placed_card does not exist");
+                debugState("weird place for debugState()!!!3");
             }                                      
         }            
 
         // triggering and accomplishing SAME    
         if (counter_same >= 2) {
             console.log("counter_same >= 2");
+            debugState("start of triggering and accomplishing SAME");
             for (const neighbor of node_current.neighbors) {
                 let compared_card = placed_cards.find(obj => obj.position === neighbor.position);                  
                 if (Object.keys(compared_card).length > 0) {
@@ -897,7 +934,8 @@ function handleCell(clicked_cell) {
 
     // ANCHOR: combo logic 
     // (*** Other conditions must be probably added)
-    if (comboRule) {     
+    if (comboRule) {   
+        debugState();  
         if (player.identity === "me") {
             
             placed_card.id = selected_card_mine.id;
@@ -952,18 +990,23 @@ function handleCell(clicked_cell) {
     }    
     
     // if (player.identity && (selected_card_mine || selected_card_opponent) && placed_card) {   
-        if (player.identity === "me") {
+        if (player.identity === "me" 
+            // && Object.keys(selected_card_mine).length > 0 && selected_card_mine.id === placed_card.id
+        ) {
             console.log("player switched to opponent")
             player.identity = "opponent";
             player.color = "red";
             player.opposite_color = "blue";
         }
-        else if (player.identity === "opponent") {
+        else if (player.identity === "opponent" 
+            // && Object.keys(selected_card_opponent).length > 0 && selected_card_opponent.id === placed_card.id
+        ) {
             console.log("player switched to Me")
             player.identity = "me";
             player.color = "blue";
             player.opposite_color = "red";
         }
+        debugState("final state");
     // }
 
     turn ++ ;

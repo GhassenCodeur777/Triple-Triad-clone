@@ -1,5 +1,11 @@
 #---------------------- TRIPLE TRIAD : Project notes ----------------------#
 
+
+10/05/2026 :
+
+    - placed_card is always "Abadon"
+
+
 - sometimes (I don't exactly know how to replicate it) something breakes if I keep clicking on the same cell.
 
 - "placed_cards" can get filled with "undefinded" (I don't exactly know how to replicate it)
