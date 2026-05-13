@@ -1,6 +1,26 @@
 #---------------------- TRIPLE TRIAD : Project notes ----------------------#
 
 
+### to do :
+
+13/05/2026 :
+
+    add PLUS rule in the conditions allowing for combo logic
+
+
+
+
+
+### Observations :
+
+
+13/05/2026 :
+
+    - my cards "defeat" an ennemy card despite them being weaker or equal (at least visually).
+        With some card combinations it does not happen, with others it does.
+    - opponent cards do not win against my cards (at least visually).
+
+
 10/05/2026 :
 
     - placed_card is always "Abadon"
